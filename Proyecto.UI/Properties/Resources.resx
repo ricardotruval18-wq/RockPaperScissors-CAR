@@ -121,4 +121,7 @@
   <data name="Fortnite" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Fortnite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Fortnite1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fortnite1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
