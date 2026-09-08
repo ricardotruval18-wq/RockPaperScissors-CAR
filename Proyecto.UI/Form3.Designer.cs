@@ -30,9 +30,10 @@
         {
             tableLayoutPanel1 = new TableLayoutPanel();
             radioButton1 = new RadioButton();
-            radioButton2 = new RadioButton();
             radioButton3 = new RadioButton();
+            radioButton2 = new RadioButton();
             button3 = new Button();
+            button1 = new Button();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -48,6 +49,7 @@
             tableLayoutPanel1.Controls.Add(radioButton3, 3, 1);
             tableLayoutPanel1.Controls.Add(radioButton2, 2, 1);
             tableLayoutPanel1.Controls.Add(button3, 3, 6);
+            tableLayoutPanel1.Controls.Add(button1, 2, 4);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -67,6 +69,7 @@
             // 
             radioButton1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             radioButton1.AutoSize = true;
+            radioButton1.Font = new Font("Sylfaen", 24F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             radioButton1.Location = new Point(83, 67);
             radioButton1.Name = "radioButton1";
             tableLayoutPanel1.SetRowSpan(radioButton1, 2);
@@ -77,24 +80,11 @@
             radioButton1.UseVisualStyleBackColor = true;
             radioButton1.CheckedChanged += radioButton1_CheckedChanged;
             // 
-            // radioButton2
-            // 
-            radioButton2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(296, 67);
-            radioButton2.Name = "radioButton2";
-            tableLayoutPanel1.SetRowSpan(radioButton2, 2);
-            radioButton2.Size = new Size(207, 122);
-            radioButton2.TabIndex = 1;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "Papel";
-            radioButton2.UseVisualStyleBackColor = true;
-            radioButton2.CheckedChanged += radioButton2_CheckedChanged;
-            // 
             // radioButton3
             // 
             radioButton3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             radioButton3.AutoSize = true;
+            radioButton3.Font = new Font("Sylfaen", 24F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             radioButton3.Location = new Point(509, 67);
             radioButton3.Name = "radioButton3";
             tableLayoutPanel1.SetRowSpan(radioButton3, 2);
@@ -104,6 +94,21 @@
             radioButton3.Text = "Tijera";
             radioButton3.UseVisualStyleBackColor = true;
             radioButton3.CheckedChanged += radioButton3_CheckedChanged;
+            // 
+            // radioButton2
+            // 
+            radioButton2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            radioButton2.AutoSize = true;
+            radioButton2.Font = new Font("Sylfaen", 22.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            radioButton2.Location = new Point(296, 67);
+            radioButton2.Name = "radioButton2";
+            tableLayoutPanel1.SetRowSpan(radioButton2, 2);
+            radioButton2.Size = new Size(207, 122);
+            radioButton2.TabIndex = 1;
+            radioButton2.TabStop = true;
+            radioButton2.Text = "Papel";
+            radioButton2.UseVisualStyleBackColor = true;
+            radioButton2.CheckedChanged += radioButton2_CheckedChanged;
             // 
             // button3
             // 
@@ -116,6 +121,18 @@
             button3.TabIndex = 3;
             button3.Text = "Salir";
             button3.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            button1.FlatStyle = FlatStyle.Popup;
+            button1.Font = new Font("Vladimir Script", 24F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            button1.ForeColor = SystemColors.ActiveCaptionText;
+            button1.Location = new Point(296, 259);
+            button1.Name = "button1";
+            button1.Size = new Size(207, 55);
+            button1.TabIndex = 4;
+            button1.Text = "Confirmar";
+            button1.UseVisualStyleBackColor = true;
             // 
             // Form3
             // 
@@ -137,5 +154,6 @@
         private RadioButton radioButton2;
         private RadioButton radioButton3;
         private Button button3;
+        private Button button1;
     }
 }
