@@ -38,21 +38,21 @@ public class Juego {
     }
 
 
-    public void procesarEleccion(Jugada enJuego, Opcion jugadaMaquina )
+    public Resultados procesarEleccion(Jugada enJuego, Opcion jugadaMaquina )
     {
         switch (enJuego.OpcionElegida)
         {
             case Opcion.Papel:
-                compararElecciones(Opcion.Papel, jugadaMaquina);
+                return compararElecciones(Opcion.Papel, jugadaMaquina);
             break;
             case Opcion.Piedra:
-                compararElecciones(Opcion.Piedra, jugadaMaquina);
+                return compararElecciones(Opcion.Piedra, jugadaMaquina);
             break;
             case Opcion.Tijera:
-                compararElecciones(Opcion.Tijera, jugadaMaquina);
+                return compararElecciones(Opcion.Tijera, jugadaMaquina);
             break;
             default:
-            
+                return Resultados.Error;
             break;
         }
     }

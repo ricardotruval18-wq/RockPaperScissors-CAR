@@ -1,4 +1,6 @@
-﻿namespace Proyecto.UI
+﻿using System.Reflection.Emit;
+
+namespace Proyecto.UI
 {
     partial class Form2
     {
@@ -34,6 +36,7 @@
             radioButton2 = new RadioButton();
             button3 = new Button();
             button1 = new Button();
+            lblResultado = new System.Windows.Forms.Label();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -50,6 +53,7 @@
             tableLayoutPanel1.Controls.Add(radioButton2, 2, 1);
             tableLayoutPanel1.Controls.Add(button3, 3, 6);
             tableLayoutPanel1.Controls.Add(button1, 2, 4);
+            tableLayoutPanel1.Controls.Add(lblResultado, 2, 5);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -133,6 +137,14 @@
             button1.TabIndex = 4;
             button1.Text = "Confirmar";
             button1.UseVisualStyleBackColor = true;
+
+            lblResultado.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            lblResultado.AutoSize = true;
+            lblResultado.Font = new Font("Sylfaen", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblResultado.Location = new Point(296, 320);
+            lblResultado.Name = "lblResultado";
+            lblResultado.Size = new Size(207, 64);
+            lblResultado.TabIndex = 5;
             // 
             // Form3
             // 
@@ -155,5 +167,6 @@
         private RadioButton radioButton3;
         private Button button3;
         private Button button1;
+        private System.Windows.Forms.Label   lblResultado;
     }
 }
