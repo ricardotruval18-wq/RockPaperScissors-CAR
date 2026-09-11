@@ -47,22 +47,38 @@ namespace Proyecto.UI
             // Crear la jugada y procesarla
             Jugada opcionJugador = new Jugada { OpcionElegida = eleccionTurno };
 
+            //Aqui no se guarda informacion porque solo esta jugando, no entrenando
+
+            // 3. Obtener la jugada de la máquina (que ya analiza el historial con los métodos peek)
+            Opcion jugadaMaquina = juegoActual.jugadaMaquina();
+
+            // 4. Procesar el resultado de la partida UNA SOLA VEZ
+            Resultados resultadoPartida = juegoActual.procesarEleccion(opcionJugador, jugadaMaquina);
             radioButton1.Checked = false;
             radioButton2.Checked = false;
             radioButton3.Checked = false;
+
             string resul;
-        
-            if (juegoActual.procesarEleccion(opcionJugador, juegoActual.jugadaMaquina) == Resultados.Ganador) {
-                resul = "Ganaste";
+
+            if (resultadoPartida == Resultados.Ganador)
+            {
+                resul = "¡Ganaste!";
             }
-            else if (juegoActual.procesarEleccion(opcionJugador, juegoActual.jugadaMaquina) == Resultados.Empate) {
+            else if (resultadoPartida == Resultados.Empate)
+            {
                 resul = "Empate";
             }
-            else if (juegoActual.procesarEleccion(opcionJugador, juegoActual.jugadaMaquina) == Resultados.Perdedor) {
+            else if (resultadoPartida == Resultados.Perdedor)
+            {
                 resul = "Perdiste";
             }
-            else { resul = " Error"; }
-            lblResultado.Text = $"{resul}"; 
+            else
+            {
+                resul = "Error";
+            }
+
+            // Mostrar el resultado en el Label de la interfaz
+            lblResultado.Text = resul;
         }
 
         private void ButtonSalir_Click(object sender, EventArgs e)

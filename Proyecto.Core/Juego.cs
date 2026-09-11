@@ -6,7 +6,7 @@ public class Juego {
     int probabPiedra;
     int probabPapel;
     int probabTijera;
-    private List<Opcion> jugadasGuardadas = new List<Opcion>();
+    public List<Opcion> jugadasGuardadas = new List<Opcion>();
 
     public void almacenarInformacion(Jugada opcionActual)
     {
@@ -15,13 +15,16 @@ public class Juego {
     public void guardarJugada(Jugada opcionActual)
     {
         jugadasGuardadas.Add(opcionActual.OpcionElegida);
-        int indexActual = jugadasGuardadas.Count-1;
+        probabilidadesTotales(jugadasGuardadas);
     }
 
     //MATRICES DE MARKOV USAN ESTO
     public void probabilidadesTotales(List<Opcion> jugadasGuardadas)
     {
-        foreach(Opcion jugada in jugadasGuardadas)
+        probabPiedra = 0;
+        probabPapel = 0;
+        probabTijera = 0;
+        foreach (Opcion jugada in jugadasGuardadas)
         {
             if(jugada == Opcion.Piedra){
                 probabPiedra++;
@@ -40,17 +43,7 @@ public class Juego {
 
     public Resultados procesarEleccion(Jugada enJuego, Opcion jugadaMaquina )
     {
-        switch (enJuego.OpcionElegida)
-        {
-            case Opcion.Papel:
-                return compararElecciones(Opcion.Papel, jugadaMaquina);
-            case Opcion.Piedra:
-                return compararElecciones(Opcion.Piedra, jugadaMaquina);
-            case Opcion.Tijera:
-                return compararElecciones(Opcion.Tijera, jugadaMaquina);
-            default:
-                return Resultados.Error;
-        }
+        return compararElecciones(enJuego.OpcionElegida, jugadaMaquina);
     }
 
     public Resultados compararElecciones(Opcion jugada, Opcion jugadaMaquina)
@@ -75,22 +68,39 @@ public class Juego {
         return Resultados.Error;
     }
 
-    public Opcion jugadaMaquina(List<Opcion> jugadasGuardadas)
+    public Opcion jugadaMaquina()
     {
         Random numRand = new Random();
-        int index = numRand.Next(0 , jugadasGuardadas.Count);
-        Opcion eleccionMaquina = jugadasGuardadas[index];
+        int totalJugadas = jugadasGuardadas.Count;
+        if (totalJugadas < 2)
+        {
+            Array valores = Enum.GetValues(typeof(Opcion));
+            return (Opcion)valores.GetValue(numRand.Next(valores.Length));
+        }
 
-        return eleccionMaquina;
+        int indexActual = totalJugadas - 1;
+        Opcion ultimaJugadaUsuario = peekBack(jugadasGuardadas, indexActual);
+        if (ultimaJugadaUsuario == Opcion.Piedra)
+        {
+            return Opcion.Papel; 
+        }
+        else if (ultimaJugadaUsuario == Opcion.Papel)
+        {
+            return Opcion.Tijera; 
+        }
+        else
+        {
+            return Opcion.Piedra;
+        }
     }
 
-    public int peekBack(List<Opcion> jugadasGuardadas, int indexActual){
-        int jugadaAnterior = (int)jugadasGuardadas[indexActual];
-        return jugadaAnterior;
-    }
-    public int peekTwoBack(List<Opcion> jugadasGuardadas, int indexActual)
+    public Opcion peekBack(List<Opcion> jugadasGuardadas, int indexActual)
     {
-        int jugadaAntAnterior = (int)jugadasGuardadas[indexActual-1];
-        return jugadaAntAnterior;
+        return jugadasGuardadas[indexActual - 1];
+    }
+
+    public Opcion peekTwoBack(List<Opcion> jugadasGuardadas, int indexActual)
+    {
+        return jugadasGuardadas[indexActual - 2];
     }
 }
