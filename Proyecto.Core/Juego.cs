@@ -18,7 +18,7 @@ public class Juego {
         int indexActual = jugadasGuardadas.Count-1;
     }
 
-    
+    //MATRICES DE MARKOV USAN ESTO
     public void probabilidadesTotales(List<Opcion> jugadasGuardadas)
     {
         foreach(Opcion jugada in jugadasGuardadas)
@@ -44,16 +44,12 @@ public class Juego {
         {
             case Opcion.Papel:
                 return compararElecciones(Opcion.Papel, jugadaMaquina);
-            break;
             case Opcion.Piedra:
                 return compararElecciones(Opcion.Piedra, jugadaMaquina);
-            break;
             case Opcion.Tijera:
                 return compararElecciones(Opcion.Tijera, jugadaMaquina);
-            break;
             default:
                 return Resultados.Error;
-            break;
         }
     }
 

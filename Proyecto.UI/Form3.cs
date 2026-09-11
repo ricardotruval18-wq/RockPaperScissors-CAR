@@ -45,19 +45,20 @@ namespace Proyecto.UI
             }
 
             // Crear la jugada y procesarla
-            Jugada resultadoRonda = new Jugada { OpcionElegida = eleccionTurno };
+            Jugada opcionJugador = new Jugada { OpcionElegida = eleccionTurno };
+
             radioButton1.Checked = false;
             radioButton2.Checked = false;
             radioButton3.Checked = false;
             string resul;
         
-            if (juegoActual.procesarEleccion(resultadoRonda, eleccionTurno) == Resultados.Ganador) {
+            if (juegoActual.procesarEleccion(opcionJugador, juegoActual.jugadaMaquina) == Resultados.Ganador) {
                 resul = "Ganaste";
             }
-            else if (juegoActual.procesarEleccion(resultadoRonda, eleccionTurno) == Resultados.Empate) {
+            else if (juegoActual.procesarEleccion(opcionJugador, juegoActual.jugadaMaquina) == Resultados.Empate) {
                 resul = "Empate";
             }
-            else if (juegoActual.procesarEleccion(resultadoRonda, eleccionTurno) == Resultados.Perdedor) {
+            else if (juegoActual.procesarEleccion(opcionJugador, juegoActual.jugadaMaquina) == Resultados.Perdedor) {
                 resul = "Perdiste";
             }
             else { resul = " Error"; }
