@@ -70,6 +70,7 @@ public class Juego {
 
     public Opcion jugadaMaquina()
     {
+        
         Random numRand = new Random();
         int totalJugadas = jugadasGuardadas.Count;
         if (totalJugadas < 2)
