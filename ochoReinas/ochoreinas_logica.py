@@ -22,7 +22,7 @@ class ochoReinas:
         return True #Si no se cumplen los otros casos entonces es seguro
     
     # funcion backtracking
-    def resolver(self, tablero, fila, soluciones):
+    def resolver(self, tablero, fila):
         if fila == self.N:    # caso base
             self.soluciones.append(list(tablero))
             return
@@ -30,18 +30,33 @@ class ochoReinas:
         for col in range(self.N):
             if self.es_seguro(tablero, fila, col):
                 tablero[fila] = col
-                self.resolver(tablero, fila + 1, soluciones)
+                self.resolver(tablero, fila + 1)
                 tablero[fila] = -1    
-                
+    
+    def compararSoluciones(self, solucionJugador):
+        validacion 
+        self.solucionJugador()
+        self.calcularSoluciones()
+        for solucion in soluciones:
+            if self.solucionJugador() == solucion:
+                validacion = True
+                return
+        validacion = False
+        return validacion
+        
+    
     def calcularSoluciones(self):
         self.soluciones = []
         self.tablero = [-1] * self.N
-        self.resolver(self.tablero, 0, self.soluciones)
+        self.resolver(self.tablero, 0)
         return self.soluciones
+
     
-juego = ochoReinas
+juego = ochoReinas()
 soluciones = juego.calcularSoluciones()
        
-print(f"Total de soluciones : {len(soluciones)}")
-for solucion in soluciones:
-    print(solucion)
+#print(f"Total de soluciones : {len(soluciones)}")
+#for solucion in soluciones:
+#    print(solucion)
+
+
