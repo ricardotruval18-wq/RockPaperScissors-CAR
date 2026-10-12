@@ -1,5 +1,6 @@
 import tkinter as tk
 from soluciones_visual import ochoReinasVisual
+from juego_visual import juegoVisual
 
 class menuOchoReinas:
     
@@ -22,15 +23,7 @@ class menuOchoReinas:
         
     def open_game_window(self):
         game_window = tk.Toplevel(self.root)
-        game_window.title("Ocho Reinas : Juego")
-        game_window.geometry("500x500")
-        
-        
-        
-        close_button = tk.Button(
-            game_window, text = "Cerrar ventana", command = game_window.destroy
-        )
-        close_button.pack(pady = 20)
+        app_game = juegoVisual(game_window)
         
     def open_solution_window(self):
         solution_window = tk.Toplevel(self.root)

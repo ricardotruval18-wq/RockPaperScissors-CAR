@@ -1,8 +1,3 @@
-#TODO 
-# import stuff
-# create logic
-# make visuals
-# finish
 class ochoReinas:
     def __init__(self, size = 8):
         self.N = size
@@ -34,15 +29,19 @@ class ochoReinas:
                 tablero[fila] = -1    
     
     def compararSoluciones(self, solucionJugador):
-        validacion 
-        self.solucionJugador()
         self.calcularSoluciones()
-        for solucion in soluciones:
-            if self.solucionJugador() == solucion:
-                validacion = True
-                return
-        validacion = False
-        return validacion
+        return solucionJugador in self.soluciones
+    
+    #def compararSoluciones(self, solucionJugador):
+    #    validacion 
+    #    self.solucionJugador()
+     #   self.calcularSoluciones()
+      #  for solucion in soluciones:
+       #     if self.solucionJugador() == solucion:
+        #        validacion = True
+         #       return
+        #validacion = False
+        #return validacion
         
     
     def calcularSoluciones(self):
@@ -55,6 +54,10 @@ class ochoReinas:
 juego = ochoReinas()
 soluciones = juego.calcularSoluciones()
        
+# class jugarOchoReinas:
+#   def __init__(self):
+    
+    
 #print(f"Total de soluciones : {len(soluciones)}")
 #for solucion in soluciones:
 #    print(solucion)
